@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/22 20:44:55 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/22 23:46:02 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,21 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
+int	imgtoPrint(t_game *game, int size, int column, int line)
+{	
+	if (game->map[size] == '0')
+		put_floor(game, column, line);
+	if (game->map[size] == '1')
+		put_wall(game, column, line);
+	if (game->map[size] == 'P')
+		put_player(game, column, line);
+	if (game->map[size] == 'C')
+		put_collectible(game, column, line);
+	if (game->map[size] == 'E')
+		put_exit(game, column, line);
+	return (1);
+}
+
 int	image_to_window(t_game *game)
 {
 	int		line;
@@ -74,48 +89,7 @@ int	image_to_window(t_game *game)
 	game->totalCollectible = 0;
 	while (totalsize < game->filesize)
 	{
-		if (game->map[totalsize] == '0')
-		{
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->floor.img, (column * game->wall.imgWidth),
-				(line * game->wall.imgHeight));
-			column++;
-		}
-		if (game->map[totalsize] == '1')
-		{
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->wall.img, (column * game->wall.imgWidth),
-				(line * game->wall.imgHeight));
-			column++;
-		}
-		if (game->map[totalsize] == 'P')
-		{
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->floor.img, (column * game->wall.imgWidth),
-				(line * game->wall.imgHeight));
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->hero.img, (column * game->wall.imgWidth + 25),
-				(line * game->wall.imgHeight));
-			column++;
-		}
-		if (game->map[totalsize] == 'C')
-		{
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->floor.img, (column * game->wall.imgWidth),
-				(line * game->wall.imgHeight));
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->collectible.img, (column * game->wall.imgWidth),
-				(line * game->wall.imgHeight));
-			game->totalCollectible++;
-			column++;
-		}
-		if (game->map[totalsize] == 'E')
-		{
-			mlx_put_image_to_window(game->vars.mlx, game->vars.mlx_window,
-				game->exit.img, (column * game->wall.imgWidth),
-				(line * game->wall.imgHeight));
-			column++;
-		}
+		column += imgtoPrint(game, totalsize, column, line);
 		if (game->map[totalsize] == '\n')
 		{
 			column = 0;
@@ -145,11 +119,8 @@ int	key_hook(int keycode, t_game *game)
 		{
 			*playerlastposition = '0';
 			*getplayerposition = 'P';
-			game->heroPosition = *getplayerposition;
 			game->score.score++;
 		}
-		printf("Score = %d\n", game->score.score);
-		image_to_window(game);
 	}
 	if (keycode == DOWN)
 	{
@@ -159,11 +130,8 @@ int	key_hook(int keycode, t_game *game)
 		{
 			*playerlastposition = '0';
 			*getplayerposition = 'P';
-			game->heroPosition = *getplayerposition;
 			game->score.score++;
 		}
-		printf("Score = %d\n", game->score.score);
-		image_to_window(game);
 	}
 	if (keycode == LEFT)
 	{
@@ -172,11 +140,8 @@ int	key_hook(int keycode, t_game *game)
 		{
 			getplayerposition[1] = '0';
 			getplayerposition[0] = 'P';
-			game->heroPosition = getplayerposition[0];
 			game->score.score++;
 		}
-		printf("Score = %d\n", game->score.score);
-		image_to_window(game);
 	}
 	if (keycode == RIGHT)
 	{
@@ -185,16 +150,18 @@ int	key_hook(int keycode, t_game *game)
 		{
 			getplayerposition[0] = '0';
 			getplayerposition[1] = 'P';
-			game->heroPosition = getplayerposition[1];
 			game->score.score++;
 		}
-		printf("Score = %d\n", game->score.score);
+	}
+	if (keycode == RIGHT || keycode == LEFT || keycode == UP || keycode == DOWN)
+	{
 		image_to_window(game);
+		printf("Steps = %d\n", game->score.score);
 	}
 	return (0);
 }
 
-int	main(void *argc)
+int	main()
 {
 	t_game	game;
 	int		mapwidth;
@@ -212,6 +179,7 @@ int	main(void *argc)
 			mapwidth, mapheight, "teste");
 	image_to_window(&game);
 	mlx_key_hook(game.vars.mlx_window, key_hook, &game);
+	mlx_hook(game.vars.mlx_window, 33, 1L << 2, endgame, &game);
 	mlx_loop(game.vars.mlx);
 	return (0);
 }

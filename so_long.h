@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/22 19:46:08 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/22 23:44:17 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,10 @@ int     load_files(t_game *game);
 int     load_map(t_game *game);
 int     read_map(t_game *game);
 int     endgame(t_game *game);
+int	    put_wall(t_game *game, int x, int y);
+int 	put_floor(t_game *game, int x, int y);
+int	    put_player(t_game *game, int x, int y);
+int	    put_collectible(t_game *game, int x, int y);
+int	    put_exit(t_game *game, int x, int y);
 
 #endif
