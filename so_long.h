@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/22 23:44:17 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/28 17:31:09 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include <string.h>
 # include <stdlib.h>
 # include <mlx.h>
 
@@ -23,18 +24,11 @@
 # define LEFT 97
 # define RIGHT 100
 # define ESC 65307
-
-typedef struct s_data{
-    void *img;
-    char *addr;
-    int bpx;
-    int ll;
-    int endian;
-}               t_data;
+# define WALL_ERR "Map Should be Surrounded by Walls!\n"
 
 typedef struct s_vars{
     void *mlx;
-    void *mlx_window;
+    void *win;
 }             t_vars;
 
 typedef struct s_movement{
@@ -45,37 +39,31 @@ typedef struct s_movement{
 typedef struct s_sprite{
     char    *path;
     void    *img;
-    int     imgWidth;
-    int     imgHeight;
+    int     img_wid;
+    int     img_hght;
 }               t_sprite;
 
 typedef struct s_score{
-    int     score;
+    int     scr;
 }              t_score;
 
-
 typedef struct s_game{
-    t_vars      vars;
-    t_data      data;
-    t_score     score;
-    t_movement  movement;
+    t_vars      vrs;
+    t_score     scr;
+    t_movement  mvmnt;
     t_sprite    hero;
     t_sprite    wall;
     t_sprite    floor;
-    t_sprite    collectible;
-    t_sprite    exit;
-    int         totalCollectible;
-    int         heroPosition;
-    int         filesize;
-    int         column;
-    int         line;
+    t_sprite    collect;
+    t_sprite    ext;
+    int         qtcollect;
+    int         qtext;
+    int         qthero;
+    int         flsz;
+    int         col;
+    int         lin;
     char        *map;
-    char        *mapfile;
-    char        *pathright;
-    int         faceup;
-    int         facedown;
-    int         faceleft;
-    int         faceright;
+    char        *mapf;
 }              t_game;
 
 int     load_sprites(t_game *game);
@@ -89,5 +77,16 @@ int 	put_floor(t_game *game, int x, int y);
 int	    put_player(t_game *game, int x, int y);
 int	    put_collectible(t_game *game, int x, int y);
 int	    put_exit(t_game *game, int x, int y);
+char	*get_player(char *s, char c);
+int	    move_up(t_game *game);
+int	    move_down(t_game *game);
+int	    move_left(t_game *game);
+int	    move_right(t_game *game);
+int     image_to_window(t_game *game);
+int     imgtoPrint(t_game *game, int size, int column, int line);
+int     ft_strlen(char *s);
+int     check_extension(t_game *game);
+int     check_walling(t_game *game);
+int     level_validation(t_game *game);
 
 #endif

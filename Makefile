@@ -3,7 +3,7 @@ NAME		=	so_long.a
 MLX_DIR		=	./minilibx-linux/test/
 MLX			=	$(MLX_DIR)/lib_linux.a
 
-SRC_FILES	=	so_long.c sprites_utils.c game_utils.c
+SRC_FILES	=	so_long.c sprites_utils.c game_utils.c player_movement.c
 
 CC			=	clang
 FLAGS		=	-Wall -Wextra -Werror -I$(SRCPATH) -Imlx_linux -03 -c
