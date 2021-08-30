@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 18:47:45 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/28 19:28:00 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,27 @@ int	check_walling(t_game *game)
 		if (l == 0 || l == game->lin)
 			while (++c < game->col)
 				if (game->map[c] != '1')
-					return (printf(WALL_ERR), exit(0), 0);
+					return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 		if (l == 1)
 			if (game->map[game->col + l] != '1'
 				|| game->map[game->lin * 2] != '1')
-				return (printf(WALL_ERR), exit(0), 0);
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 		if (l > 0 && l < game->lin)
 			if (game->map[((game->col + 1) * l)] != '1'
 				|| game->map[game->col - 1 + ((game->col + 1) * (l))] != '1')
-				return (printf(WALL_ERR), exit(0), 0);
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 		l++;
 	}
 	return (0);
 }
 
-int check_invalid_chars(t_game *game, int pos)
+int	check_invalid_chars(t_game *game, int pos)
 {
-	char * valid_chars;
-	
+	char	*valid_chars;
+
 	valid_chars = "PEC10\n";
 	if (get_player(valid_chars, game->map[pos]) == NULL)
-		return (printf("Not a valid map!\n"), exit(0), 0);
+		return (printf(ERROR_DEF), exit(0), 0);
 	else
 		return (0);
 }
@@ -84,12 +84,12 @@ int	level_validation(t_game *game)
 {
 	check_map_content(game);
 	if (game->qthero == 0)
-		return (printf("Need a player position on the map!\n"), exit(0), 0);
+		return (printf(ERROR_DEF OPLRERROR), exit(0), 0);
 	if (game->qthero > 1)
-		return (printf("Only 1 player allowed!\n"), exit(0), 0);
+		return (printf(ERROR_DEF MRPLRERROR), exit(0), 0);
 	if (game->qtcollect == 0)
-		return (printf("Need at least one collectible!\n"), exit(0), 0);
+		return (printf(ERROR_DEF CLCTERROR), exit(0), 0);
 	if (game->qtext == 0)
-		return (printf("Need at least one exit!\n"), exit(0), 0);
+		return (printf(ERROR_DEF EXTERROR), exit(0), 0);
 	return (0);
 }

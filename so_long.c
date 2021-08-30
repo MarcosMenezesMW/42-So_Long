@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 17:34:57 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 19:55:14 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	key_hook(int keycode, t_game *game)
 {
-	char	*playerlastposition;
-	char	*getplayerposition;
 
 	if (keycode == ESC)
 		endgame(game);
@@ -50,6 +48,8 @@ int	main(int argc, char **argv)
 	int		mapwidth;
 	int		mapheight;
 
+	if (argc != 2)
+		return (printf(ERROR_DEF "Invalid parameters!\n"), 0);
 	game.mapf = argv[1];
 	check_extension(&game);
 	load_map(&game);

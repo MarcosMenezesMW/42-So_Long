@@ -1,38 +1,33 @@
 NAME		=	so_long.a
 
-MLX_DIR		=	./minilibx-linux/test/
-MLX			=	$(MLX_DIR)/lib_linux.a
+MLX_DIR		=	./minilibx-linux/
 
-SRC_FILES	=	so_long.c sprites_utils.c game_utils.c player_movement.c
+SRC_FILES	=	error_handling.c game_utils.c player_movement.c \
+				print_sprites.c so_long.c sprites_utils.c utils.c
 
 CC			=	clang
-FLAGS		=	-Wall -Wextra -Werror -I$(SRCPATH) -Imlx_linux -03 -c
+FLAGS		=	-g -Wall -Wextra -Werror -I includes.
+LIBS		= 	-L $(MLX_DIR) -lmlx -lXext -lX11 -lm
 
 SRCIMAGES	=	./imgs/
-SRCMAPS 	=	./maps/
 
 SRCS 		=	$(SRC_FILES)
 OBJS		=	$(SRCS:c=o)
 
 all: $(NAME)
 
-$(NAME): $(MLX) $(OBJS)
-		$(RM) $(NAME)
-		$(AR) rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+				$(MLX) 
+				$(CC) $(FLAGS) -o $(NAME) $(SRCS) $(LIBS)
 
 $(MLX):
 		make -C $(MLX_DIR)
-
-%.o: %.c
-	@clang $(FLAGS) -I /printf -c $< -o $@
-	@echo "$@ created from $<"
 
 clean:
 	@rm -f $(OBJS)
 	@echo "OBJECTS deleted"
 
 fclean: clean
-	make -C ${MLX_DIR} fclean
 	@rm -f $(NAME)
 	@echo "$(NAME) deleted"
 
