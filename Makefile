@@ -1,6 +1,6 @@
 NAME		=	so_long.a
 
-MLX_DIR		=	./minilibx-linux/
+MLX_DIR		=	./minilibx/
 
 SRC_FILES	=	error_handling.c game_utils.c player_movement.c \
 				print_sprites.c so_long.c sprites_utils.c utils.c
