@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 22:14:32 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:56:10 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define CLCTERROR  "Need at least one collectible!\n"
 # define EXTERROR   "Need at least one exit!\n"
 # define VLDMERROR  "Not a valid map!\n"
+# define PARAMERROR	"Invalid parameter!\n"
 # define WALL_ERR   "Map Should be Surrounded by Walls!\n"
 # define WINMSG		"You Won! Score: "
 

@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:21:09 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 22:15:02 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:49:31 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,17 @@ int	check_win_condition(t_game *game)
 		printf("You can now leave the map!\n");
 		game->qtcollect = -1;
 	}
+	return (0);
+}
+
+int	check_extension(t_game *game)
+{
+	int	size;
+
+	size = ft_strlen(game->mapf) - 4;
+	if (game->mapf[size] != '.' && game->mapf[size + 1] != 'b'
+		&& game->mapf[size + 2] != 'e' && game->mapf[size + 3] != 'r')
+		return (printf("Invalid extension. Must be a \".ber\" file\n"),
+			exit(0), 0);
 	return (0);
 }

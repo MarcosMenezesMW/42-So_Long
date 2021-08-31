@@ -6,21 +6,25 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 21:42:18 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:56:23 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_extension(t_game *game)
+static int	frst_lst_line(t_game *game, int line, int col)
 {
-	int	size;
-
-	size = ft_strlen(game->mapf) - 4;
-	if (game->mapf[size] != '.' && game->mapf[size + 1] != 'b'
-		&& game->mapf[size + 2] != 'e' && game->mapf[size + 3] != 'r')
-		return (printf("Invalid extension. Must be a \".ber\" file\n"),
-			exit(0), 0);
+	if (line == 0)
+		while (++col < game->col)
+			if (game->map[col] != '1')
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
+	if (line == game->lin)
+	{
+		col = ((game->flsz - 1) - (game->col - 1));
+		while (++col < game->flsz - 1)
+			if (game->map[col] != '1')
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
+	}
 	return (0);
 }
 
@@ -33,10 +37,7 @@ int	check_walling(t_game *game)
 	while (l <= game->lin)
 	{
 		c = -1;
-		if (l == 0 || l == game->lin)
-			while (++c < game->col)
-				if (game->map[c] != '1')
-					return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
+		frst_lst_line(game, l, c);
 		if (l == 1)
 			if (game->map[game->col + l] != '1'
 				|| game->map[game->lin * 2] != '1')
@@ -56,7 +57,7 @@ static int	check_invalid_chars(t_game *game, int pos)
 
 	valid_chars = "PEC10\n";
 	if (get_player(valid_chars, game->map[pos]) == NULL)
-		return (printf(ERROR_DEF), exit(0), 0);
+		return (printf(ERROR_DEF PARAMERROR), exit(0), 0);
 	else
 		return (0);
 }
