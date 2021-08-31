@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 19:25:17 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 20:33:23 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
-# include <mlx.h>
+# include "./minilibx/mlx.h"
 
 # define UP         119 
 # define DOWN       115

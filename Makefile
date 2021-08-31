@@ -17,11 +17,8 @@ OBJS		=	$(SRCS:c=o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-				$(MLX) 
+				cd $(MLX_DIR) && ./configure
 				$(CC) $(FLAGS) -o $(NAME) $(SRCS) $(LIBS)
-
-$(MLX):
-		make -C $(MLX_DIR)
 
 clean:
 	@rm -f $(OBJS)
