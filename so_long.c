@@ -6,15 +6,17 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 19:55:14 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:10:00 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	key_hook(int keycode, t_game *game)
+static int	key_hook(int keycode, t_game *game)
 {
+	static int	check_steps;
 
+	check_steps = game->scr.scr;
 	if (keycode == ESC)
 		endgame(game);
 	if (keycode == UP)
@@ -26,14 +28,13 @@ int	key_hook(int keycode, t_game *game)
 	if (keycode == RIGHT)
 		move_right(game);
 	if (keycode == RIGHT || keycode == LEFT || keycode == UP || keycode == DOWN)
-	{
 		image_to_window(game);
+	if (game->scr.scr > check_steps)
 		printf("Steps = %d\n", game->scr.scr);
-	}
 	return (0);
 }
 
-int	init_game(t_game *game)
+static int	init_game(t_game *game)
 {
 	game->scr.scr = 0;
 	game->qtcollect = 0;

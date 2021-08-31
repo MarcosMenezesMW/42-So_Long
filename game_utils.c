@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:21:09 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 17:16:38 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:15:02 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,15 @@ int	read_map(t_game *game)
 	fd = open(game->mapf, O_RDONLY);
 	read(fd, game->map, game->flsz + 1);
 	close(fd);
+	return (0);
+}
+
+int	check_win_condition(t_game *game)
+{
+	if (game->qtcollect == 0)
+	{
+		printf("You can now leave the map!\n");
+		game->qtcollect = -1;
+	}
 	return (0);
 }

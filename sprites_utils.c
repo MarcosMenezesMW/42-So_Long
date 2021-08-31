@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:41:18 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 18:03:32 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:10:38 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ int	load_files(t_game *game)
 	game->collect.path = "./imgs/collectible.xpm";
 	game->ext.path = "./imgs/exit.xpm";
 	return (0);
+}
+
+int	finished(t_game *game)
+{
+	printf(WINMSG "%d\n", game->scr.scr);
+	return (endgame(game), 0);
 }
 
 int	load_sprites(t_game *game)

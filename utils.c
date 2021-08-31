@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 19:49:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 18:50:42 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:14:51 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	image_to_window(t_game *game)
 	totalsize = 0;
 	line = 0;
 	column = 0;
-	game->qtcollect = 0;
 	while (totalsize < game->flsz)
 	{
 		column += imgtoPrint(game, totalsize, column, line);
@@ -95,6 +94,7 @@ int	image_to_window(t_game *game)
 		}
 		totalsize++;
 	}
+	check_win_condition(game);
 	score = ft_itoa(game->scr.scr);
 	mlx_string_put(game->vrs.mlx, game->vrs.win, 600, 80, 255, "SCORE: ");
 	mlx_string_put(game->vrs.mlx, game->vrs.win, 650, 80, 255, score);

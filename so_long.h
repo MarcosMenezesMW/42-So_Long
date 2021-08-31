@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 20:33:23 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 22:14:32 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define EXTERROR   "Need at least one exit!\n"
 # define VLDMERROR  "Not a valid map!\n"
 # define WALL_ERR   "Map Should be Surrounded by Walls!\n"
+# define WINMSG		"You Won! Score: "
 
 typedef struct s_vars{
 	void	*mlx;
@@ -88,5 +89,7 @@ int		ft_strlen(char *s);
 int		check_extension(t_game *game);
 int		check_walling(t_game *game);
 int		level_validation(t_game *game);
+int		check_win_condition(t_game *game);
+int		finished(t_game *game);
 
 #endif

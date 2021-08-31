@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 19:28:00 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/30 21:42:18 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	check_walling(t_game *game)
 	return (0);
 }
 
-int	check_invalid_chars(t_game *game, int pos)
+static int	check_invalid_chars(t_game *game, int pos)
 {
 	char	*valid_chars;
 
@@ -61,7 +61,7 @@ int	check_invalid_chars(t_game *game, int pos)
 		return (0);
 }
 
-int	check_map_content(t_game *game)
+static int	check_map_content(t_game *game)
 {
 	int	i;
 
