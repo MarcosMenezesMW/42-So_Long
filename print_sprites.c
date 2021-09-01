@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 23:43:01 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/28 17:33:18 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/31 22:16:54 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	put_collectible(t_game *game, int x, int y)
 		game->floor.img, (x * game->wall.img_wid),
 		(y * game->wall.img_hght));
 	mlx_put_image_to_window(game->vrs.mlx, game->vrs.win,
-		game->collect.img, (x * game->wall.img_wid),
-		(y * game->wall.img_hght));
+		game->collect.img, (x * game->wall.img_wid + 25),
+		(y * game->wall.img_hght + 25));
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 19:49:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 22:14:51 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/31 22:38:50 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,18 @@ int	image_to_window(t_game *game)
 	while (totalsize < game->flsz)
 	{
 		column += imgtoPrint(game, totalsize, column, line);
-		if (game->map[totalsize] == '\n')
+		if (game->map[totalsize++] == '\n')
 		{
 			column = 0;
 			line++;
 		}
-		totalsize++;
 	}
 	check_win_condition(game);
 	score = ft_itoa(game->scr.scr);
-	mlx_string_put(game->vrs.mlx, game->vrs.win, 600, 80, 255, "SCORE: ");
-	mlx_string_put(game->vrs.mlx, game->vrs.win, 650, 80, 255, score);
+	mlx_string_put(game->vrs.mlx, game->vrs.win, (game->vrs.mapw / 2 - 50),
+		80, 255, "SCORE: ");
+	mlx_string_put(game->vrs.mlx, game->vrs.win, (game->vrs.mapw / 2),
+		80, 255, score);
 	free(score);
 	return (0);
 }

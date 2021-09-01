@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 19:30:49 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 22:09:15 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/31 20:31:48 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	move_left(t_game *game)
 	{
 		if (playercurrentpos[0] == 'C')
 			game->qtcollect--;
-		if (playercurrentpos[1] == 'E')
+		if (playercurrentpos[0] == 'E')
 			finished(game);
 		playercurrentpos[1] = '0';
 		playercurrentpos[0] = 'P';

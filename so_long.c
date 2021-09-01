@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/30 22:10:00 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/31 22:33:06 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ static int	init_game(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game	game;
-	int		mapwidth;
-	int		mapheight;
 
 	if (argc != 2)
 		return (printf(ERROR_DEF "Invalid parameters!\n"), 0);
@@ -61,10 +59,10 @@ int	main(int argc, char **argv)
 	load_files(&game);
 	game.vrs.mlx = mlx_init();
 	load_sprites(&game);
-	mapwidth = game.col * game.wall.img_wid;
-	mapheight = game.lin * game.wall.img_hght;
+	game.vrs.mapw = game.col * game.wall.img_wid;
+	game.vrs.maph = game.lin * game.wall.img_hght;
 	game.vrs.win = mlx_new_window(game.vrs.mlx,
-			mapwidth, mapheight, "SO_LONG");
+			game.vrs.mapw, game.vrs.maph, "SO_LONG");
 	image_to_window(&game);
 	mlx_key_hook(game.vrs.win, key_hook, &game);
 	mlx_hook(game.vrs.win, 33, 1L << 2, endgame, &game);
