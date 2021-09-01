@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:21:09 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/31 22:23:51 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/31 22:57:07 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int	check_extension(t_game *game)
 	int	size;
 
 	size = ft_strlen(game->mapf) - 4;
-	if (game->mapf[size] != '.' && game->mapf[size + 1] != 'b'
-		&& game->mapf[size + 2] != 'e' && game->mapf[size + 3] != 'r')
-		return (printf("Invalid extension. Must be a \".ber\" file\n"),
-			exit(0), 0);
-	return (0);
+	if (game->mapf[size] == '.' && game->mapf[size + 1] == 'b'
+		&& game->mapf[size + 2] == 'e' && game->mapf[size + 3] == 'r')
+		return (0);
+	return (printf("Invalid extension. Must be a \".ber\" file\n"),
+		exit(0), 0);
 }

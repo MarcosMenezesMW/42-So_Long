@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/31 22:21:09 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/08/31 22:48:09 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	frst_lst_line(t_game *game, int line, int col)
 	if (line == 0)
 		while (++col < game->col)
 			if (game->map[col] != '1')
-				return (printf(ERROR_DEF WALL_ERR"erro1"), exit(0), 0);
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 	if (line == game->lin)
 	{
 		col = ((game->flsz - 1) - (game->col - 1));
 		while (++col < game->flsz)
 			if (game->map[col] != '1')
-				return (printf(ERROR_DEF WALL_ERR"erro2"), exit(0), 0);
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 	}
 	return (0);
 }
@@ -41,11 +41,11 @@ int	check_walling(t_game *game)
 		if (l == 1)
 			if (game->map[game->col + l] != '1'
 				|| game->map[game->col * 2] != '1')
-				return (printf(ERROR_DEF WALL_ERR"erro3"), exit(0), 0);
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 		if (l > 0 && l < game->lin)
 			if (game->map[((game->col + 1) * l)] != '1'
 				|| game->map[game->col - 1 + ((game->col + 1) * (l))] != '1')
-				return (printf(ERROR_DEF WALL_ERR"erro4"), exit(0), 0);
+				return (printf(ERROR_DEF WALL_ERR), exit(0), 0);
 		l++;
 	}
 	return (0);
