@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/31 22:33:06 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/01 21:44:58 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,32 @@ static int	init_game(t_game *game)
 	return (0);
 }
 
+int	animate_char(t_game *game)
+{
+	static long long int i = 0;
+	if (i > 20000)
+	{
+		if(strcmp(game->hero.path, "./imgs/testeright.xpm") == 0)
+		{
+			unload_sprites(game);
+			game->hero.path = "./imgs/teste.xpm";
+			load_sprites(game);
+			image_to_window(game);
+		}
+		else
+		{
+			unload_sprites(game);
+			game->hero.path = "./imgs/testeright.xpm";
+			load_sprites(game);
+			image_to_window(game);
+			
+		}
+		i = 0;
+	}
+	i++;
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	game;
@@ -63,6 +89,7 @@ int	main(int argc, char **argv)
 	game.vrs.maph = game.lin * game.wall.img_hght;
 	game.vrs.win = mlx_new_window(game.vrs.mlx,
 			game.vrs.mapw, game.vrs.maph, "SO_LONG");
+	mlx_loop_hook(game.vrs.mlx, animate_char, &game);
 	image_to_window(&game);
 	mlx_key_hook(game.vrs.win, key_hook, &game);
 	mlx_hook(game.vrs.win, 33, 1L << 2, endgame, &game);
