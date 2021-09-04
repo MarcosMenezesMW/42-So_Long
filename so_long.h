@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/31 22:32:15 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/04 00:27:02 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define WALL_ERR   "Map should be surrounded by walls!\n"
 # define SQREERROR	"Map cannot be a square\n"
 # define WINMSG		"You Won! Score: "
+# define LOSEMSG	"You Lost!\nSCORE: "
+# define LEAVE		"You may now close the game.\n"
 
 typedef struct s_vars{
 	void	*mlx;
@@ -42,12 +44,60 @@ typedef struct s_vars{
 	int		mapw;
 }				t_vars;
 
+enum e_hero {
+	HERO_UP,
+	HERO_STILL,
+};
+
+enum e_collect {
+	COLLECT_FRONT,
+	COLLECT_LEFT,
+	COLLECT_SIDE,
+	COLLECT_RIGHT,
+};
+
+enum e_enemy {
+	ENEMY_F1,
+	ENEMY_F2,
+	ENEMY_F3,
+};
+
 typedef struct s_sprite{
 	char	*path;
 	void	*img;
 	int		img_wid;
 	int		img_hght;
 }				t_sprite;
+
+typedef struct s_Hero{
+	char	*path[2];
+	void	*img;
+	int		img_wid;
+	int		img_hght;
+	int		s_pos;
+	int		qthero;
+	int		animate;
+}				t_hero;
+
+typedef struct s_collect{
+	char	*path[4];
+	void	*img;
+	int		img_wid;
+	int		img_hght;
+	int		s_pos;
+	int		qtcollect;
+	int		animate;
+}				t_collect;
+
+typedef struct s_enemy{
+	char	*path[3];
+	void	*img;
+	int		img_wid;
+	int		img_hght;
+	int		s_pos;
+	int		animate;
+	int		direction;
+}				t_enemy;
 
 typedef struct s_score{
 	int		scr;
@@ -56,14 +106,13 @@ typedef struct s_score{
 typedef struct s_game{
 	t_vars		vrs;
 	t_score		scr;
-	t_sprite	hero;
+	t_hero		hero;
+	t_enemy		enemy;
+	t_collect	clct;
 	t_sprite	wall;
 	t_sprite	floor;
-	t_sprite	collect;
 	t_sprite	ext;
-	int			qtcollect;
 	int			qtext;
-	int			qthero;
 	int			flsz;
 	int			col;
 	int			lin;
@@ -83,6 +132,9 @@ int		put_floor(t_game *game, int x, int y);
 int		put_player(t_game *game, int x, int y);
 int		put_collectible(t_game *game, int x, int y);
 int		put_exit(t_game *game, int x, int y);
+int		put_enemy(t_game *game, int x, int y);
+int		enemy_patrol(t_game *game);
+int		animate_game(t_game *game);
 int		move_up(t_game *game);
 int		move_down(t_game *game);
 int		move_left(t_game *game);

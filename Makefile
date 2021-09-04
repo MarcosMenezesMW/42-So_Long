@@ -1,9 +1,10 @@
-NAME		=	so_long.a
+NAME		=	so_long
 
 MLX_DIR		=	./minilibx/
 
 SRC_FILES	=	error_handling.c game_utils.c player_movement.c \
-				print_sprites.c so_long.c sprites_utils.c utils.c
+				print_sprites.c so_long.c sprites_utils.c utils.c \
+				enemy.c
 
 CC			=	clang
 FLAGS		=	-g -Wall -Wextra -Werror -I includes.

@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 19:49:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/31 22:38:50 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/03 22:59:30 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ int	imgtoPrint(t_game *game, int size, int column, int line)
 		put_collectible(game, column, line);
 	if (game->map[size] == 'E')
 		put_exit(game, column, line);
+	if (game->map[size] == 'X')
+		put_enemy(game, column, line);
 	return (1);
 }
 

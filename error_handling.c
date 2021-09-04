@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/08/31 22:48:09 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/03 23:07:02 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	check_invalid_chars(t_game *game, int pos)
 {
 	char	*valid_chars;
 
-	valid_chars = "PEC10\n";
+	valid_chars = "PEC10X\n";
 	if (get_player(valid_chars, game->map[pos]) == NULL)
 		return (printf(ERROR_DEF PARAMERROR), exit(0), 0);
 	else
@@ -71,11 +71,11 @@ static int	check_map_content(t_game *game)
 	{
 		check_invalid_chars(game, i);
 		if (game->map[i] == 'P')
-			game->qthero++;
+			game->hero.qthero++;
 		if (game->map[i] == 'E')
 			game->qtext++;
 		if (game->map[i] == 'C')
-			game->qtcollect++;
+			game->clct.qtcollect++;
 		i++;
 	}
 	return (0);
@@ -84,11 +84,11 @@ static int	check_map_content(t_game *game)
 int	level_validation(t_game *game)
 {
 	check_map_content(game);
-	if (game->qthero == 0)
+	if (game->hero.qthero == 0)
 		return (printf(ERROR_DEF OPLRERROR), exit(0), 0);
-	if (game->qthero > 1)
+	if (game->hero.qthero > 1)
 		return (printf(ERROR_DEF MRPLRERROR), exit(0), 0);
-	if (game->qtcollect == 0)
+	if (game->hero.qthero == 0)
 		return (printf(ERROR_DEF CLCTERROR), exit(0), 0);
 	if (game->qtext == 0)
 		return (printf(ERROR_DEF EXTERROR), exit(0), 0);
