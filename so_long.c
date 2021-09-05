@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/03 23:45:48 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/05 18:14:28 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ static int	init_game(t_game *game)
 	game->hero.s_pos = 0;
 	game->hero.animate = 0;
 	game->enemy.s_pos = 0;
-	game->enemy.animate = 0;
-	game->enemy.direction = 1;
+	game->enemy.anim = 0;
+	game->enemy.qtd = 0;
+	game->enemy.drct = 1;
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 19:30:49 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/04 00:17:43 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/05 17:53:49 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	move_up(t_game *game)
 {
 	char	*playercurrentpos;
 	char	*playernextpos;
-	
+
 	if (game->hero.qthero > 0)
 	{
 		playercurrentpos = get_player(game->map, 'P');

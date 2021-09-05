@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/03 23:07:02 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/05 18:14:49 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ static int	check_map_content(t_game *game)
 			game->qtext++;
 		if (game->map[i] == 'C')
 			game->clct.qtcollect++;
+		if (game->map[i] == 'X')
+			game->enemy.qtd++;
 		i++;
 	}
 	return (0);

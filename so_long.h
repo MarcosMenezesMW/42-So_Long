@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/04 00:27:02 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/05 18:05:31 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,16 @@ typedef struct s_collect{
 }				t_collect;
 
 typedef struct s_enemy{
-	char	*path[3];
-	void	*img;
-	int		img_wid;
-	int		img_hght;
-	int		s_pos;
-	int		animate;
-	int		direction;
+	char			*path[3];
+	void			*img;
+	char			*pos;
+	int				img_wid;
+	int				img_hght;
+	int				s_pos;
+	int				qtd;
+	int				anim;
+	int				chk;
+	int				drct;
 }				t_enemy;
 
 typedef struct s_score{
