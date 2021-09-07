@@ -1,63 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   image_printing.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/24 19:49:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/03 22:59:30 by mameneze         ###   ########.fr       */
+/*   Created: 2021/09/05 19:33:38 by mameneze          #+#    #+#             */
+/*   Updated: 2021/09/05 21:14:14 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-static int	ft_intlen(int n)
-{
-	int		len;
-
-	len = 0;
-	if (n <= 0)
-		len++;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static char	*ft_itoa(int n)
-{
-	char	*str;
-	long	n_value;
-	int		i;
-
-	n_value = n;
-	i = ft_intlen(n);
-	str = malloc(i + 1);
-	if (!str)
-		return (NULL);
-	str[i--] = '\0';
-	if (n_value == 0)
-		str[i] = '0';
-	while (n_value > 0)
-	{
-		str[i--] = n_value % 10 + '0';
-		n_value /= 10;
-	}
-	return (str);
-}
-
-int	ft_strlen(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 int	imgtoPrint(t_game *game, int size, int column, int line)
 {	
@@ -71,8 +24,6 @@ int	imgtoPrint(t_game *game, int size, int column, int line)
 		put_collectible(game, column, line);
 	if (game->map[size] == 'E')
 		put_exit(game, column, line);
-	if (game->map[size] == 'X')
-		put_enemy(game, column, line);
 	return (1);
 }
 
@@ -81,7 +32,6 @@ int	image_to_window(t_game *game)
 	int		line;
 	int		column;
 	int		totalsize;
-	char	*score;
 
 	totalsize = 0;
 	line = 0;
@@ -96,11 +46,5 @@ int	image_to_window(t_game *game)
 		}
 	}
 	check_win_condition(game);
-	score = ft_itoa(game->scr.scr);
-	mlx_string_put(game->vrs.mlx, game->vrs.win, (game->vrs.mapw / 2 - 50),
-		80, 255, "SCORE: ");
-	mlx_string_put(game->vrs.mlx, game->vrs.win, (game->vrs.mapw / 2),
-		80, 255, score);
-	free(score);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 18:05:31 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/05 21:02:16 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define WALL_ERR   "Map should be surrounded by walls!\n"
 # define SQREERROR	"Map cannot be a square\n"
 # define WINMSG		"You Won! Score: "
-# define LOSEMSG	"You Lost!\nSCORE: "
+# define LOSEMSG	"You Lost!\nFINAL SCORE: "
 # define LEAVE		"You may now close the game.\n"
 
 typedef struct s_vars{
@@ -145,6 +145,7 @@ int		move_right(t_game *game);
 int		image_to_window(t_game *game);
 int		imgtoPrint(t_game *game, int size, int column, int line);
 int		ft_strlen(char *s);
+char	*ft_itoa(int n);
 int		check_extension(t_game *game);
 int		check_walling(t_game *game);
 int		level_validation(t_game *game);

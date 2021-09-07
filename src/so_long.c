@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 18:14:28 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/05 21:12:10 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,7 @@ static int	init_game(t_game *game)
 	game->scr.scr = 0;
 	game->qtext = 0;
 	game->clct.qtcollect = 0;
-	game->clct.s_pos = 0;
-	game->clct.animate = 0;
 	game->hero.qthero = 0;
-	game->hero.s_pos = 0;
-	game->hero.animate = 0;
-	game->enemy.s_pos = 0;
-	game->enemy.anim = 0;
-	game->enemy.qtd = 0;
-	game->enemy.drct = 1;
 	return (0);
 }
 
@@ -71,7 +63,6 @@ int	main(int argc, char **argv)
 	game.vrs.maph = game.lin * game.wall.img_hght;
 	game.vrs.win = mlx_new_window(game.vrs.mlx,
 			game.vrs.mapw, game.vrs.maph, "SO_LONG");
-	mlx_loop_hook(game.vrs.mlx, animate_game, &game);
 	image_to_window(&game);
 	mlx_key_hook(game.vrs.win, key_hook, &game);
 	mlx_hook(game.vrs.win, 33, 1L << 2, endgame, &game);
