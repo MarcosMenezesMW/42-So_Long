@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   animation.c                                        :+:      :+:    :+:   */
+/*   animation_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 23:23:25 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 18:04:50 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:11:06 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int	animate_hero(t_game *game)
 {

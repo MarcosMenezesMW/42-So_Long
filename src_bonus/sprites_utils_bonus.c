@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprites_utils.c                                    :+:      :+:    :+:   */
+/*   sprites_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:41:18 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 21:02:42 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 22:09:14 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	load_files(t_game *game)
 {
@@ -70,6 +70,9 @@ int	endgame(t_game *game)
 {
 	unload_sprites(game);
 	mlx_destroy_window(game->vrs.mlx, game->vrs.win);
+	mlx_destroy_display(game->vrs.mlx);
+	free(game->vrs.mlx);
+	free(game->map);
 	exit(0);
 	return (0);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 21:15:55 by mameneze         ###   ########.fr       */
+/*   Created: 2021/09/07 21:37:49 by mameneze          #+#    #+#             */
+/*   Updated: 2021/09/08 21:46:35 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
-# include "./minilibx/mlx.h"
+# include "../minilibx/mlx.h"
 
 # define UP         119 
 # define DOWN       115
@@ -106,6 +106,7 @@ int		move_right(t_game *game);
 int		image_to_window(t_game *game);
 int		imgtoPrint(t_game *game, int size, int column, int line);
 int		ft_strlen(char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
 int		check_extension(t_game *game);
 int		check_walling(t_game *game);
 int		level_validation(t_game *game);

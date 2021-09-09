@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_sprites.c                                    :+:      :+:    :+:   */
+/*   print_sprites_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 23:43:01 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/03 21:04:45 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:11:39 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 int	put_wall(t_game *game, int x, int y)
 {

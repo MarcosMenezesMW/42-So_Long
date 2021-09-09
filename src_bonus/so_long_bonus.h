@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:19:17 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 21:02:16 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 22:16:12 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
-# include "./minilibx/mlx.h"
+# include "../minilibx/mlx.h"
 
 # define UP         119 
 # define DOWN       115
@@ -42,21 +42,21 @@ typedef struct s_vars{
 	void	*win;
 	int		maph;
 	int		mapw;
-}				t_vars;
+}	t_vars;
 
-enum e_hero {
+enum	e_hero {
 	HERO_UP,
 	HERO_STILL,
 };
 
-enum e_collect {
+enum	e_collect {
 	COLLECT_FRONT,
 	COLLECT_LEFT,
 	COLLECT_SIDE,
 	COLLECT_RIGHT,
 };
 
-enum e_enemy {
+enum	e_enemy {
 	ENEMY_F1,
 	ENEMY_F2,
 	ENEMY_F3,
@@ -67,7 +67,7 @@ typedef struct s_sprite{
 	void	*img;
 	int		img_wid;
 	int		img_hght;
-}				t_sprite;
+}	t_sprite;
 
 typedef struct s_Hero{
 	char	*path[2];
@@ -77,7 +77,7 @@ typedef struct s_Hero{
 	int		s_pos;
 	int		qthero;
 	int		animate;
-}				t_hero;
+}	t_hero;
 
 typedef struct s_collect{
 	char	*path[4];
@@ -87,7 +87,7 @@ typedef struct s_collect{
 	int		s_pos;
 	int		qtcollect;
 	int		animate;
-}				t_collect;
+}	t_collect;
 
 typedef struct s_enemy{
 	char			*path[3];
@@ -100,11 +100,11 @@ typedef struct s_enemy{
 	int				anim;
 	int				chk;
 	int				drct;
-}				t_enemy;
+}	t_enemy;
 
 typedef struct s_score{
 	int		scr;
-}				t_score;
+}	t_score;
 
 typedef struct s_game{
 	t_vars		vrs;
@@ -121,7 +121,7 @@ typedef struct s_game{
 	int			lin;
 	char		*map;
 	char		*mapf;
-}				t_game;
+}	t_game;
 
 char	*get_player(char *s, char c);
 int		load_sprites(t_game *game);
@@ -146,6 +146,7 @@ int		image_to_window(t_game *game);
 int		imgtoPrint(t_game *game, int size, int column, int line);
 int		ft_strlen(char *s);
 char	*ft_itoa(int n);
+void	*ft_calloc(size_t nmemb, size_t size);
 int		check_extension(t_game *game);
 int		check_walling(t_game *game);
 int		level_validation(t_game *game);

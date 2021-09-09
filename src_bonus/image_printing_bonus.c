@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image_printing.c                                   :+:      :+:    :+:   */
+/*   image_printing_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 19:33:38 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 20:55:07 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:11:29 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int	create_trgb(int t, int r, int g, int b)
 {

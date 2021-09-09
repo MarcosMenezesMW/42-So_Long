@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_handling.c                                   :+:      :+:    :+:   */
+/*   error_handling_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 21:02:51 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 18:14:49 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:11:20 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static int	frst_lst_line(t_game *game, int line, int col)
 {

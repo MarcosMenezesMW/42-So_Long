@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:21:09 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/03 21:02:50 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:48:23 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	load_map(t_game *game)
 		return (printf("Error: Invalid file descriptor!\n"), exit(0), 0);
 	while (eof > 0)
 	{
-		map = malloc(1);
+		map = ft_calloc(1, 1);
 		eof = read(fd, map, 1);
 		if (*map == '\n')
 			game->lin++;
@@ -41,7 +41,7 @@ int	load_map(t_game *game)
 	}
 	game->col = (game->flsz - game->lin) / game->lin;
 	game->flsz--;
-	game->map = malloc(game->flsz);
+	game->map = malloc(game->flsz + 1);
 	close(fd);
 	check_square(game);
 	return (0);

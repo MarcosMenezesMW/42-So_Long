@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_movement.c                                  :+:      :+:    :+:   */
+/*   player_movement_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/24 19:30:49 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 17:53:49 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 20:11:34 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 char	*get_player(char *s, char c)
 {

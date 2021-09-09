@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:41:18 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 21:14:52 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:29:27 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ int	endgame(t_game *game)
 {
 	unload_sprites(game);
 	mlx_destroy_window(game->vrs.mlx, game->vrs.win);
+	mlx_destroy_display(game->vrs.mlx);
+	free(game->vrs.mlx);
+	free(game->map);
 	exit(0);
 	return (0);
 }
