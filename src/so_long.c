@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/17 20:40:50 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/05 21:12:10 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:39:26 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	main(int argc, char **argv)
 	image_to_window(&game);
 	mlx_key_hook(game.vrs.win, key_hook, &game);
 	mlx_hook(game.vrs.win, 33, 1L << 2, endgame, &game);
+	mlx_expose_hook(game.vrs.win, image_to_window, &game);
 	mlx_loop(game.vrs.mlx);
 	return (0);
 }

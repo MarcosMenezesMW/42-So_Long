@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:21:09 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 22:11:17 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:46:55 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 static int	check_square(t_game *game)
 {
 	if (game->col == game->lin)
-		return (printf(ERROR_DEF SQREERROR), exit(0), 0);
+		return (printf(ERROR_DEF SQREERROR), free(game->map),
+			exit(0), 0);
 	return (0);
 }
 

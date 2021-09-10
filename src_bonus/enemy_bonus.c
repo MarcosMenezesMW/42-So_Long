@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 22:56:18 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 20:11:13 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:50:50 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ int	enemy_patrol(t_game *game)
 		nxtp[i] = enep[i] + (game->col * game->enemy.drct)
 			+ game->enemy.drct;
 		if ((*nxtp[i] == '0' || *nxtp[i] == 'P')
-			&& game->enemy.anim > 20000)
+			&& game->enemy.anim > 15000)
 		{
-			if (*nxtp[i] == 'P' && game->enemy.anim > 10000)
+			if (*nxtp[i] == 'P' && game->enemy.anim > 8000)
 			{
 				printf(LOSEMSG "%d\n" LEAVE, game->scr.scr);
 				game->hero.qthero = -1;

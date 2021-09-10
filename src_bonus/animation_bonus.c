@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/03 23:23:25 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 20:11:06 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/10 18:50:31 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	animate_hero(t_game *game)
 
 static int	animate_clct(t_game *game)
 {
-	if (game->clct.animate > 10000)
+	if (game->clct.animate > 8000)
 	{
 		unload_sprites(game);
 		load_sprites(game);
@@ -42,7 +42,7 @@ static int	animate_clct(t_game *game)
 			game->enemy.s_pos = 0;
 		game->clct.animate = 0;
 	}
-	if (game->enemy.anim > 20000)
+	if (game->enemy.anim > 15000)
 		game->enemy.anim = 0;
 	return (0);
 }
