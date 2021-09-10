@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:41:18 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 22:09:14 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/09 21:08:24 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,21 @@
 
 int	load_files(t_game *game)
 {
-	game->hero.path[HERO_UP] = "./imgs/hero/heromo.xpm";
-	game->hero.path[HERO_STILL] = "./imgs/hero/heromc.xpm";
-	game->floor.path = "./imgs/tileset/floor.xpm";
-	game->wall.path = "./imgs/tileset/wall.xpm";
-	game->ext.path = "./imgs/tileset/exit.xpm";
-	game->clct.path[COLLECT_FRONT] = "./imgs/collectible/collectfront.xpm";
-	game->clct.path[COLLECT_LEFT] = "./imgs/collectible/collectleft.xpm";
-	game->clct.path[COLLECT_SIDE] = "./imgs/collectible/collectside.xpm";
-	game->clct.path[COLLECT_RIGHT] = "./imgs/collectible/collectright.xpm";
-	game->enemy.path[ENEMY_F1] = "./imgs/enemy/enemyf1.xpm";
-	game->enemy.path[ENEMY_F2] = "./imgs/enemy/enemyf2.xpm";
-	game->enemy.path[ENEMY_F3] = "./imgs/enemy/enemyf3.xpm";
+	game->hero.path[HERO_UP] = "./src_bonus/imgs/hero/herooms.xpm";
+	game->hero.path[HERO_STILL] = "./src_bonus/imgs/hero/herocms.xpm";
+	game->floor.path = "./src_bonus/imgs/tileset/tileset.xpm";
+	game->wall.path = "./src_bonus/imgs/tileset/walls.xpm";
+	game->ext.path = "./src_bonus/imgs/tileset/exits.xpm";
+	game->clct.path[COLLECT_FRONT]
+		= "./src_bonus/imgs/collectible/coinfront.xpm";
+	game->clct.path[COLLECT_LEFT] = "./src_bonus/imgs/collectible/coinleft.xpm";
+	game->clct.path[COLLECT_SIDE]
+		= "./src_bonus/imgs/collectible/coinside.xpm";
+	game->clct.path[COLLECT_RIGHT]
+		= "./src_bonus/imgs/collectible/coinright.xpm";
+	game->enemy.path[ENEMY_F1] = "./src_bonus/imgs/enemy/monster1.xpm";
+	game->enemy.path[ENEMY_F2] = "./src_bonus/imgs/enemy/monster2.xpm";
+	game->enemy.path[ENEMY_F3] = "./src_bonus/imgs/enemy/monster3.xpm";
 	return (0);
 }
 

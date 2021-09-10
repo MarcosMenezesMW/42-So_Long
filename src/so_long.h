@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 21:37:49 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 21:46:35 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/09 20:42:03 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include <string.h>
 # include <stdlib.h>
 # include "../minilibx/mlx.h"
 

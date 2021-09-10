@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:41:18 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 21:29:27 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/09 20:52:18 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	load_files(t_game *game)
 {
-	game->hero.path = "./imgs/hero/heromo.xpm";
-	game->floor.path = "./imgs/tileset/floor.xpm";
-	game->wall.path = "./imgs/tileset/wall.xpm";
-	game->ext.path = "./imgs/tileset/exit.xpm";
-	game->clct.path = "./imgs/collectible/collectfront.xpm";
+	game->hero.path = "./src/imgs/hero/herooms.xpm";
+	game->floor.path = "./src/imgs/tileset/tileset.xpm";
+	game->wall.path = "./src/imgs/tileset/walls.xpm";
+	game->ext.path = "./src/imgs/tileset/exits.xpm";
+	game->clct.path = "./src/imgs/collectible/coinfront.xpm";
 	return (0);
 }
 

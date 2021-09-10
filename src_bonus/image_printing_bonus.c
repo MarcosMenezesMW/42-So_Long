@@ -6,7 +6,7 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/05 19:33:38 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/08 20:11:29 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/08 23:38:50 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ int	image_to_window(t_game *game)
 	check_win_condition(game);
 	score = ft_itoa(game->scr.scr);
 	mlx_string_put(game->vrs.mlx, game->vrs.win, (game->vrs.mapw / 2 - 50),
-		80, create_trgb(0, 255, 255, 255), "SCORE: ");
+		25, create_trgb(0, 255, 255, 255), "SCORE: ");
 	mlx_string_put(game->vrs.mlx, game->vrs.win, (game->vrs.mapw / 2),
-		80, create_trgb(0, 255, 255, 255), score);
+		25, create_trgb(0, 255, 255, 255), score);
 	free(score);
 	return (0);
 }

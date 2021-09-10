@@ -10,6 +10,8 @@ HEADER		= 	./src/so_long.h
 
 BNS_HEADER	=	./src_bonus/so_long_bonus.h
 
+VALGRIND 	=	valgrind --leak-check=full --show-leak-kinds=all
+
 SRC_FILES	=	error_handling.c \
 				game_utils.c \
 				image_printing.c \
@@ -50,6 +52,12 @@ $(NAME):	$(OBJS)
 
 bonus:		$(BONUSOBJS)
 				$(CC) $(FLAGS) -o $(NAME) $(BSRCS) $(LIBS)
+
+leaktest:	all
+			$(VALGRIND) ./$(NAME) ./maps/Noenemies.ber
+
+leaktestb:	bonus 
+			$(VALGRIND) ./$(NAME) ./maps/PacMap.ber
 
 clean:
 	@rm -f $(OBJS)
