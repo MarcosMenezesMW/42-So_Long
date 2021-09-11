@@ -6,18 +6,11 @@
 /*   By: mameneze <mameneze@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/22 19:21:09 by mameneze          #+#    #+#             */
-/*   Updated: 2021/09/10 18:42:16 by mameneze         ###   ########.fr       */
+/*   Updated: 2021/09/11 19:34:19 by mameneze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-static int	check_square(t_game *game)
-{
-	if (game->col == game->lin)
-		return (printf(ERROR_DEF SQREERROR), free(game->map),
-			exit(0), 0);
-	return (0);
-}
 
 int	load_map(t_game *game)
 {
@@ -44,7 +37,6 @@ int	load_map(t_game *game)
 	game->flsz--;
 	game->map = malloc(game->flsz + 1);
 	close(fd);
-	check_square(game);
 	return (0);
 }
 
